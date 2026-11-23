@@ -1,0 +1,740 @@
+/* =====================================
+   PORTFÓLIO GUILHERME
+   Identidade visual azul · mobile-first
+===================================== */
+
+
+/* 1. VARIÁVEIS */
+
+:root {
+    --fundo: #070D19;
+    --fundo-2: #0D1525;
+    --card: #0D1B30;
+    --borda: #183A5E;
+    --azul: #168BFF;
+    --azul-escuro: #0878E8;
+    --ciano: #38BDF8;
+    --texto: #FFFFFF;
+    --texto-suave: #C5D0DF;
+    --texto-fraco: #8FA3BC;
+
+    --raio: 14px;
+    --altura-header: 68px;
+    --largura-max: 1200px;
+
+    /* espaçamento lateral fluido: 20px no celular até 64px no desktop */
+    --lateral: clamp(20px, 5vw, 64px);
+}
+
+
+/* 2. BASE */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--altura-header);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* impede scroll da página com o menu mobile aberto */
+body.menu-ativo {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+:focus-visible {
+    outline: 2px solid var(--ciano);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+
+/* 3. CABEÇALHO */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: var(--altura-header);
+    /* alinha o logo e o menu com o conteúdo das seções */
+    padding: 0 max(var(--lateral), calc((100% - var(--largura-max)) / 2 + var(--lateral)));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgba(13, 21, 37, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: var(--texto);
+}
+
+.logo span {
+    color: var(--azul);
+}
+
+
+/* 4. MENU — MOBILE (padrão) */
+
+#menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 44px;   /* área de toque mínima recomendada */
+    height: 44px;
+    padding: 10px;
+
+    background: transparent;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+#menu-btn span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--azul);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* vira um "X" quando aberto */
+#menu-btn.aberto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#menu-btn.aberto span:nth-child(2) { opacity: 0; }
+#menu-btn.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+#menu {
+    position: fixed;
+    top: var(--altura-header);
+    left: 0;
+    right: 0;
+    height: calc(100dvh - var(--altura-header));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    background: rgba(7, 13, 25, 0.97);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+
+#menu.menu-aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#menu a {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--texto-suave);
+    transition: color 0.2s;
+}
+
+#menu a:hover,
+#menu a.ativo {
+    color: var(--azul);
+}
+
+
+/* 5. SEÇÕES */
+
+section {
+    width: 100%;
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 96px) var(--lateral);
+}
+
+.titulo-secao {
+    color: var(--azul);
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.titulo-secao::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 12px;
+    background: var(--azul);
+    border-radius: 3px;
+}
+
+section p {
+    color: var(--texto-suave);
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.8;
+}
+
+.descricao {
+    max-width: 640px;
+    margin-bottom: 32px;
+}
+
+
+/* 6. APRESENTAÇÃO INICIAL (HERO) */
+
+#inicio {
+    min-height: calc(100svh - var(--altura-header));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+
+    text-align: center;
+}
+
+/* o brilho azul ocupa a tela toda, não só o container */
+#inicio {
+    position: relative;
+}
+
+#inicio::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+    background: radial-gradient(circle at 80% 40%, rgba(0, 119, 255, 0.14), transparent 45%);
+    pointer-events: none;
+}
+
+.hero-conteudo {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.destaque {
+    color: var(--ciano) !important;
+    font-size: 12px !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+#inicio h1 {
+    font-size: clamp(36px, 7vw, 60px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.subtitulo {
+    font-size: clamp(18px, 2.6vw, 24px);
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 18px;
+}
+
+.subtitulo span {
+    color: var(--ciano);
+}
+
+.texto-digitando {
+    font-size: clamp(16px, 2vw, 19px) !important;
+    color: var(--texto) !important;
+    min-height: 1.8em; /* evita a página "pular" enquanto digita */
+    margin-bottom: 10px;
+}
+
+#texto-animado {
+    color: var(--azul);
+    font-weight: 700;
+    border-right: 2px solid var(--azul);
+    padding-right: 4px;
+    animation: cursor 0.8s infinite;
+}
+
+@keyframes cursor {
+    50% { border-color: transparent; }
+}
+
+.hero-conteudo > p:not(.destaque):not(.texto-digitando) {
+    margin-bottom: 28px;
+}
+
+.hero-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* 7. BOTÕES */
+
+.botao {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+
+    background-color: var(--azul-escuro);
+    color: var(--texto);
+    border: 1px solid var(--azul-escuro);
+
+    padding: 12px 26px;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.botao:hover {
+    background-color: var(--azul);
+    transform: translateY(-3px);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    border-color: var(--borda);
+    color: var(--texto-suave);
+}
+
+.botao-secundario:hover {
+    background-color: transparent;
+    border-color: var(--azul);
+    color: var(--texto);
+}
+
+
+/* 8. ILUSTRAÇÃO DE CÓDIGO */
+
+.hero-ilustracao {
+    display: flex;
+    justify-content: center;
+}
+
+.tela-codigo {
+    width: 100%;
+    max-width: 400px;
+    padding: clamp(20px, 3vw, 30px);
+
+    background: var(--card);
+    border: 1px solid var(--azul-escuro);
+    border-radius: var(--raio);
+    box-shadow: 0 0 40px rgba(0, 119, 255, 0.15);
+
+    text-align: left;
+    animation: flutuar 6s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    50% { transform: translateY(-10px); }
+}
+
+.tela-topo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.tela-topo span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.tela-topo span:nth-child(1) { background: #FF5F57; }
+.tela-topo span:nth-child(2) { background: #FEBC2E; }
+.tela-topo span:nth-child(3) { background: #28C840; }
+
+.tela-topo small {
+    margin-left: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--texto-fraco);
+}
+
+.tela-codigo pre {
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(12px, 1.5vw, 14px);
+    line-height: 1.9;
+    color: var(--texto-suave);
+    white-space: pre-wrap;   /* quebra a linha em telas pequenas em vez de vazar */
+    word-break: break-word;
+}
+
+.tela-codigo .kw  { color: #C084FC; }
+.tela-codigo .str { color: var(--ciano); }
+
+.simbolo {
+    text-align: center;
+    color: var(--azul);
+    font-size: clamp(44px, 6vw, 64px);
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+
+/* 9. SOBRE MIM */
+
+.sobre-container {
+    display: grid;
+    gap: 28px;
+}
+
+.sobre-infos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.sobre-infos li {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.sobre-infos span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--texto-fraco);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+
+/* 10. CARDS (hobbies e objetivos) */
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--azul);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.15);
+}
+
+.card-icone {
+    font-size: clamp(36px, 4vw, 44px);
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: var(--azul);
+    font-size: clamp(18px, 2vw, 20px);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* 10b. CONTATOS */
+
+.titulo-secao span {
+    color: var(--ciano);
+}
+
+.cards-2 {
+    max-width: 760px;
+}
+
+.card-link {
+    display: block;
+    color: inherit;
+}
+
+.card-acao {
+    display: block;
+    margin-top: 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: var(--ciano);
+    overflow-wrap: anywhere; /* o e-mail quebra em vez de vazar no celular */
+}
+
+.card-link:hover .card-acao {
+    text-decoration: underline;
+}
+
+
+/* 11. RODAPÉ */
+
+footer {
+    background-color: var(--fundo-2);
+    border-top: 1px solid var(--borda);
+    padding: 24px var(--lateral);
+    text-align: center;
+}
+
+footer p {
+    color: var(--texto-fraco);
+    font-size: 14px;
+}
+
+
+/* 12. BOTÃO VOLTAR AO TOPO */
+
+#voltar-topo {
+    position: fixed;
+    right: clamp(16px, 3vw, 28px);
+    bottom: clamp(16px, 3vw, 28px);
+    z-index: 90;
+
+    width: 46px;
+    height: 46px;
+
+    background: var(--azul-escuro);
+    color: var(--texto);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background-color 0.3s;
+}
+
+#voltar-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#voltar-topo:hover {
+    background: var(--azul);
+}
+
+
+/* =====================================
+   12b. CELULAR PEQUENO (< 480px)
+   cards em linha (ícone ao lado) para não ficarem altos demais
+===================================== */
+
+@media (max-width: 479px) {
+
+    .card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 16px;
+        align-items: center;
+        text-align: left;
+        padding: 18px;
+    }
+
+    .card-icone {
+        grid-row: span 2;
+        margin-bottom: 0;
+        font-size: 34px;
+    }
+
+    .card h3 {
+        margin-bottom: 4px;
+    }
+
+    .card-icone {
+        grid-row: span 3;
+    }
+
+    .card-acao {
+        grid-column: 2;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================
+   13. CELULAR GRANDE (≥ 480px)
+===================================== */
+
+@media (min-width: 480px) {
+
+    .hero-botoes {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .sobre-infos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cards-4,
+    .cards-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================
+   14. TABLET (≥ 768px)
+===================================== */
+
+@media (min-width: 768px) {
+
+    /* menu volta a ser horizontal */
+    #menu-btn {
+        display: none;
+    }
+
+    #menu {
+        position: static;
+        height: auto;
+        flex-direction: row;
+        gap: 32px;
+        background: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    #menu a {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .cards {
+        gap: 22px;
+    }
+
+    .cards-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        padding: 32px 22px;
+    }
+
+}
+
+
+/* =====================================
+   15. DESKTOP (≥ 1024px)
+===================================== */
+
+@media (min-width: 1024px) {
+
+    #inicio {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        text-align: left;
+    }
+
+    .hero-conteudo,
+    .hero-ilustracao {
+        flex: 1;
+    }
+
+    .hero-conteudo {
+        margin: 0;
+    }
+
+    .hero-botoes {
+        justify-content: flex-start;
+    }
+
+    .sobre-container {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .sobre-infos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cards-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+/* 16. ACESSIBILIDADE: menos animação para quem prefere */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}

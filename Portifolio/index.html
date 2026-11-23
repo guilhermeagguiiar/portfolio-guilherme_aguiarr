@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Guilherme Aguiar, estudante de Engenharia de Software na UDF.">
+    <title>Guilherme Aguiar | Portfólio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header id="topo">
+        <a href="#inicio" class="logo">&lt;Guilherme<span>/</span>&gt;</a>
+
+        <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre mim</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#objetivos">Objetivos</a>
+            <a href="#contatos">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- APRESENTAÇÃO INICIAL -->
+        <section id="inicio" class="hero">
+
+            <div class="hero-conteudo">
+                <p class="destaque">Olá! Seja bem-vindo ao meu portfólio</p>
+
+                <h1>Guilherme Aguiar</h1>
+
+                <h2 class="subtitulo">
+                    Estudante de <span>Engenharia de Software</span>
+                </h2>
+
+                <p class="texto-digitando">
+                    Apaixonado por <span id="texto-animado"></span>
+                </p>
+
+                <p>
+                    Estou construindo minha jornada para me tornar
+                    Engenheiro de Software e desenvolvedor Full Stack.
+                </p>
+
+                <div class="hero-botoes">
+                    <a href="#sobre" class="botao">Conheça minha história</a>
+                    <a href="#objetivos" class="botao botao-secundario">Meus objetivos</a>
+                </div>
+            </div>
+
+            <!-- ILUSTRAÇÃO TECNOLÓGICA -->
+            <div class="hero-ilustracao" aria-hidden="true">
+                <div class="tela-codigo">
+                    <div class="tela-topo">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <small>desenvolvedor.js</small>
+                    </div>
+
+<pre><code><span class="kw">const</span> desenvolvedor = {
+  nome: <span class="str">"Guilherme"</span>,
+  curso: <span class="str">"Engenharia de Software"</span>,
+  faculdade: <span class="str">"UDF"</span>,
+  objetivo: <span class="str">"Full Stack"</span>
+};</code></pre>
+
+                    <div class="simbolo">&lt;/&gt;</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SOBRE MIM -->
+        <section id="sobre">
+            <h2 class="titulo-secao">Sobre mim</h2>
+
+            <div class="sobre-container">
+                <p>
+                    Sou estudante de Engenharia de Software na <strong>UDF</strong>,
+                    atualmente no segundo semestre. Tenho interesse em tecnologia,
+                    programação e desenvolvimento de sistemas, e gosto de aprender
+                    colocando a mão no código.
+                </p>
+
+                <ul class="sobre-infos">
+                    <li><span>Curso</span> Engenharia de Software</li>
+                    <li><span>Instituição</span> UDF</li>
+                    <li><span>Semestre</span> 2º</li>
+                    <li><span>Foco</span> Full Stack</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HOBBIES -->
+        <section id="hobbies">
+            <h2 class="titulo-secao">Meus hobbies</h2>
+
+            <p class="descricao">
+                Além da tecnologia, gosto de atividades que fazem
+                parte da minha rotina e do meu estilo de vida.
+            </p>
+
+            <div class="cards cards-4">
+                <article class="card">
+                    <div class="card-icone">🎮</div>
+                    <h3>Jogos</h3>
+                    <p>Curto jogos de estratégia, com desafios e muito confronto.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">🏋️</div>
+                    <h3>Academia</h3>
+                    <p>Busco evolução, disciplina e qualidade de vida através dos treinos.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">⚽</div>
+                    <h3>Futebol</h3>
+                    <p>Gosto de assistir às partidas e ver o Flamengo jogar.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">🎵</div>
+                    <h3>Música</h3>
+                    <p>A música faz parte do meu dia a dia. Sem ela, não rendo tanto.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- OBJETIVOS -->
+        <section id="objetivos">
+            <h2 class="titulo-secao">Meus objetivos</h2>
+
+            <p class="descricao">
+                Estou sempre buscando aprender e evoluir
+                para construir minha carreira na tecnologia.
+            </p>
+
+            <div class="cards cards-3">
+                <article class="card">
+                    <div class="card-icone">💻</div>
+                    <h3>Engenheiro de Software</h3>
+                    <p>Desenvolver minhas habilidades em programação e me tornar um profissional qualificado.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">🚀</div>
+                    <h3>Desenvolvedor Full Stack</h3>
+                    <p>Aprender Front-End e Back-End para criar aplicações completas.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icone">⚡</div>
+                    <h3>Vibecoding</h3>
+                    <p>Explorar novas formas de desenvolver projetos utilizando inteligência artificial.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTATOS -->
+        <section id="contatos">
+            <h2 class="titulo-secao">Entre em <span>contato</span></h2>
+
+            <p class="descricao">
+                Conheça meus projetos ou entre em contato comigo.
+            </p>
+
+            <div class="cards cards-2">
+                <a href="https://github.com/guilhermeagguiiar"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="card card-link">
+                    <div class="card-icone">💻</div>
+                    <h3>GitHub</h3>
+                    <p>Conheça meus projetos e códigos.</p>
+                    <span class="card-acao">@guilhermeagguiiar ↗</span>
+                </a>
+
+                <a href="mailto:guilhermee.agguiiar@gmail.com" class="card card-link">
+                    <div class="card-icone">📧</div>
+                    <h3>E-mail</h3>
+                    <p>Envie uma mensagem para mim.</p>
+                    <span class="card-acao">guilhermee.agguiiar@gmail.com</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© <span id="ano">2026</span> · Guilherme Aguiar</p>
+    </footer>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button id="voltar-topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+</body>
+</html>
